@@ -1,0 +1,45 @@
+.chat-input-container {
+    display: grid;
+    background-color: rgba(40, 39, 39, 0.941);
+    border: 1px solid #ccccccb1;
+    border-radius: 10px;
+    padding: 5px;
+    width: 70%;
+    height: 90%;
+    grid-template-columns: max-content 90% max-content;
+}
+
+.camera_icon_wrapper {
+    grid-column: 1;
+    margin-left: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.camera-icon {
+    width: 100%;
+    cursor: pointer;
+}
+
+.placeholder_image_input {
+    grid-column: 2;
+    margin-left: auto;
+    margin-right: auto;
+    color: #a2a0a075;
+    font-size: 0.9rem;
+}
+
+.send-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    grid-column: 3;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 30%;
+}
+
+.send-icon {
+    width: 90%;
+    height: 90%;
+}

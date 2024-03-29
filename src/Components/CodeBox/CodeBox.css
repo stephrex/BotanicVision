@@ -1,0 +1,47 @@
+.code-box {
+    background-color: #212121;
+    border: 1px solid #323232;
+    border-radius: 4px;
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    overflow: auto;
+    /* Enable scrolling if content overflows */
+    width: 40rem;
+    /* Set a fixed width */
+    height: 10rem;
+    /* Set a fixed height */
+}
+
+/* Optional: Style the pre and code tags for syntax highlighting */
+.code-box pre {
+    margin: 0;
+}
+
+.code-box code {
+    display: block;
+    padding: 0;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #858383;
+}
+
+/* Change the color of the scrollbar track */
+.code-box::-webkit-scrollbar-track {
+    background-color: #5b5b5b;
+    /* Background color of the scrollbar track */
+}
+
+/* Change the color of the scrollbar thumb */
+.code-box::-webkit-scrollbar-thumb {
+    background-color: #000;
+    /* Color of the scrollbar thumb (handle) */
+}
+
+/* Optional: Change the size of the scrollbar */
+.code-box::-webkit-scrollbar {
+    width: 8px;
+    /* Width of the scrollbar */
+    height: 8px;
+    border-radius: 4px;
+    /* Height of the scrollbar */
+}
