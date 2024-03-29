@@ -1,0 +1,55 @@
+@keyframes typing_1 {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink-caret_1 {
+
+    from,
+    to {
+        border-color: rgba(132, 132, 132, 0.893);
+    }
+
+    50% {
+        border-color: rgb(135, 135, 135);
+    }
+}
+
+.typing-animation_1 {
+    font-family: Arial, sans-serif;
+    white-space: pre-line;
+    /* Ensure new lines are respected */
+    overflow: hidden;
+    position: relative;
+}
+
+.cursor {
+    border-right: .15em solid rgba(170, 170, 170, 0.849);
+    /* The cursor */
+    animation: typing_1 7s steps(40, end), blink-caret_1 .75s step-end infinite;
+    /* Adjust the timing (7s and .75s) as needed */
+}
+
+
+.typing-animation_1 div {
+    display: block;
+    /* Each line of text is a block element */
+    margin-bottom: 5px;
+    /* Adjust spacing between lines */
+}
+
+.typing-animation_1 div::after {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 1px;
+    /* Adjust height as needed */
+    background-color: rgb(255, 255, 255);
+    /* Adjust color as needed */
+    /* animation: typing 1s steps(20, end); */
+}

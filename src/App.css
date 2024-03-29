@@ -1,0 +1,13 @@
+#header {
+    display: flex;
+    justify-content: center;
+    color: lightslategray;
+    font-size: 3.5em;
+    font-style: oblique;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+}
+
+body {
+    background-color: #1d1c1c;
+}

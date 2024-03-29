@@ -1,0 +1,44 @@
+.toggle-btn {
+    font-size: 24px;
+    /* Adjust size as needed */
+    color: #fff;
+    background-color: #3333331b;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    left: 250px;
+    /* Position it next to the sidebar */
+    top: 50%;
+    padding: 10px;
+    transition: left 0.3s ease-in-out;
+    z-index: 1;
+}
+
+.toggle-btn span {
+    display: inline-block;
+    transform: rotate(0deg);
+    transition: transform 0.3s ease-in-out;
+}
+
+.toggle-btn.open {
+    left: 0;
+    /* Move button to the left */
+}
+
+.toggle-btn.open span {
+    transform: rotate(180deg);
+    /* Rotate arrow when sidebar is open */
+}
+
+/* Styles for main content */
+.chat_body {
+    /* margin-left: 250px; */
+    /* Adjust margin to accommodate sidebar width */
+    padding: 20px;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+.chat_body.expanded {
+    margin-left: 250px;
+    /* Expand content when sidebar closes */
+}
