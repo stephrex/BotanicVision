@@ -4,6 +4,7 @@ import ChatInput from '../../Components/ChatInput/ChatInput';
 import Predict from '../../Components/Predict/Predict';
 import CodeBox from '../../Components/CodeBox/CodeBox';
 import CropDiseaseDetection from '../CropDiseaseDetection/CropDiseaseDetection';
+import CropRecommendation from '../CropRecommendation/CropRecommendation';
 
 function ChatBody() {
     const [welcomeTextIndex, setWelcomeTextIndex] = useState(0);
@@ -30,6 +31,7 @@ function ChatBody() {
     const [showCropClassification, setShowCropClassification] = useState(true);
     const [showFruitsClassification, setShowFruitsClassification] = useState(true);
     const [showCropDiseaseDetection, setShowCropDiseaseDetection] = useState(true);
+    const [showCropRecommendation, setShowCropRecommedation] = useState(true);
     const [showMainContent, setShowMainContent] = useState(true);
     const [showChatBodyContent2, setshowChatBodyContent2] = useState(false);
     const [classifierName, setClassifierName] = useState('');
@@ -44,6 +46,7 @@ function ChatBody() {
         setShowCropClassification(false);
         setShowFruitsClassification(false);
         setShowCropDiseaseDetection(false);
+        setShowCropRecommedation(false);
         setShowMainContent(false);
         setshowChatBodyContent2(true);
         setClassifierName('Crops');
@@ -53,6 +56,7 @@ function ChatBody() {
         setShowFruitsClassification(false);
         setShowCropClassification(false);
         setShowCropDiseaseDetection(false);
+        setShowCropRecommedation(false);
         setShowMainContent(false);
         setshowChatBodyContent2(true);
         setClassifierName('Fruits');
@@ -62,16 +66,28 @@ function ChatBody() {
         setShowCropDiseaseDetection(false);
         setShowCropClassification(false);
         setShowFruitsClassification(false);
+        setShowCropRecommedation(false);
         setShowMainContent(false);
         setshowChatBodyContent2(true);
         setClassifierName('CDD');
         setIsCDDSelectPage(true);
     };
 
+    const handleCRClick = () => {
+        setShowCropDiseaseDetection(false);
+        setShowCropClassification(false);
+        setShowFruitsClassification(false);
+        setShowCropRecommedation(false);
+        setShowMainContent(false);
+        setshowChatBodyContent2(true);
+        setClassifierName('CR');
+    }
+
     const handleBackButtonClick = () => {
         setShowCropClassification(true);
         setShowFruitsClassification(true);
         setShowCropDiseaseDetection(true);
+        setShowCropRecommedation(true);
         setShowMainContent(true); // Show the main content
         setshowChatBodyContent2(false); // Hide the back button
         setClassifierName('');
@@ -118,10 +134,13 @@ function ChatBody() {
                         <div className='welcome_text_wrapper'>
                             <h1 className='welcome_text' style={showMainContent ? null : { display: 'none' }}>Welcome to BotanicVision</h1>
                             {(classifierName === 'Fruits' || classifierName === 'Crops') && (
-                                <h1 className='welcome_text' style={!showMainContent ? null : { display: 'none' }}>Use Botanic Vision to Learn about your {classifierName}</h1>
+                                <h1 className='welcome_text' style={!showMainContent ? null : { display: 'none' }}>Use BotanicVision to Learn about your {classifierName}</h1>
                             )}
                             {(classifierName === 'CDD') && (
-                                <h1 className='welcome_text' style={!showMainContent ? null : { display: 'none' }}>Use Botanic Vision to Detect Diseases in Crops</h1>
+                                <h1 className='welcome_text' style={!showMainContent ? null : { display: 'none' }}>Use BotanicVision to Detect Diseases in Crops</h1>
+                            )}
+                            {(classifierName === 'CR') && (
+                                <h1 className='welcome_text' style={!showMainContent ? null : { display: 'none' }}>Use BotanicVision to Accurately Predict Crop Yield</h1>
                             )}
                         </div>
                         <div className='welcome_text_2_wrapper'>
@@ -147,6 +166,12 @@ function ChatBody() {
                             <div className='crop_disease_detection_border_option' onClick={handleCDDClick}>
                                 <div className='crop_disease_detection_border_option_header'><h1 style={{ fontWeight: 400 }}>Crop Disease Detector</h1></div>
                                 <div className='crop_disease_detection_border_option_body'><p style={{ textAlign: 'center' }}>Our AI accurately identifies crop diseases from images, empowering farmers to make informed decisions and protect their harvests. Try it now!</p></div>
+                            </div>
+                        )}
+                        {showCropRecommendation && (
+                            <div className='crop_recommendation_border_option' onClick={handleCRClick}>
+                                <div className='crop_recommendation_border_option_header'><h1 style={{ fontWeight: 400 }}>Crop Recommendation</h1></div>
+                                <div className='crop_recommendation_border_option_body'><p style={{ textAlign: 'center' }}>Our AI accurately predicts crop yield, based on soil properties. This aids in precision farming. Try it now!</p></div>
                             </div>
                         )}
                     </div>
@@ -182,7 +207,7 @@ function ChatBody() {
                                     ) : (
                                         predictionResult.info && (
                                             <div id='prediction_response_info'>
-                                                <CodeBox text={predictionResult.info} />
+                                                <CodeBox text={predictionResult.info} width='40rem' maxline={'75'} />
                                             </div>
                                         )
                                     )}
@@ -193,7 +218,10 @@ function ChatBody() {
                     {classifierName === 'CDD' && (
                         <div > <CropDiseaseDetection onCropOptionClick={handleCropOptionClick} uploadedImage={uploadedImage} /></div>
                     )}
-                    {!isCDDSelectPage && (
+                    {classifierName === 'CR' && (
+                        <div><CropRecommendation /></div>
+                    )}
+                    {(!isCDDSelectPage && classifierName !== 'CR') && (
                         <div className='chat_input_component'>
                             <ChatInput onSendImage={handleSendImage} onUploadedImage={uploadedImage} onPredictButtonClick={() => handlePrediction()} />
                         </div>

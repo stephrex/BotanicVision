@@ -84,7 +84,8 @@
 
 .plants_classification_border_option,
 .fruits_classification_border_option,
-.crop_disease_detection_border_option {
+.crop_disease_detection_border_option,
+.crop_recommendation_border_option {
     background-color: #151515d6;
     border-radius: 25px;
     border: #8a8a8a74 2px solid;
@@ -101,7 +102,8 @@
 
 .plants_classification_border_option:hover,
 .fruits_classification_border_option:hover,
-.crop_disease_detection_border_option:hover {
+.crop_disease_detection_border_option:hover,
+.crop_recommendation_border_option:hover {
     cursor: pointer;
     background-color: #393737;
     transform: scale(1.1);
@@ -109,7 +111,8 @@
 
 .plants_classification_border_option_header,
 .fruits_classification_border_option_header,
-.crop_disease_detection_border_option_header {
+.crop_disease_detection_border_option_header,
+.crop_recommendation_border_option_header {
     color: #b4b1b1;
     font-size: 95%;
     text-align: center;
@@ -117,7 +120,8 @@
 
 .plants_classification_border_option_body,
 .fruits_classification_border_option_body,
-.crop_disease_detection_border_option_body {
+.crop_disease_detection_border_option_body,
+.crop_recommendation_border_option_body {
     color: #d1d0d0;
     font-size: 90%;
     text-align: center;
@@ -125,6 +129,10 @@
 
 .crop_disease_detection_border_option_body {
     font-size: 81%;
+}
+
+.crop_recommendation_border_option_header {
+    font-size: 90%;
 }
 
 /* .plants_classification_border_option:nth-child(2):hover,

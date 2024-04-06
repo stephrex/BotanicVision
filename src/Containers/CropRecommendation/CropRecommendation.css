@@ -1,0 +1,116 @@
+/* CropRecommendation.css */
+
+#recommender_body {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    margin-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-container {
+    width: 30%;
+    padding: 20px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    background-color: hsl(0, 0%, 100%);
+}
+
+.slider-container {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+input[type="range"] {
+    width: 100%;
+    -webkit-appearance: none;
+    height: 10px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    margin-top: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #646464;
+    cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #4e4e4e;
+    cursor: pointer;
+}
+
+button {
+    background-color: #575757;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #bbbbbb;
+}
+
+.recommenderResult {
+    width: 50%;
+}
+
+#results-placeholder {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    gap: 20px;
+    width: 70%;
+    height: 95%;
+    color: white;
+}
+
+.results-placeholder_1 {
+    width: 70%;
+    height: 20%;
+    margin-bottom: 24px;
+    background: linear-gradient(130deg, #5a5959 25%, #525050 50%, #727171 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+    border-radius: 5px;
+}
+
+.results-placeholder_2 {
+    width: 100%;
+    height: 80%;
+    background: linear-gradient(130deg, #5a5959 25%, #525050 50%, #727171 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+    border-radius: 5px;
+}
+
+.results_class {
+    color: white;
+}
+
+#results_class_header {
+    width: 80%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-bottom: 20px;
+    font-size: 1.3em;
+}
+
+#results_class_info {
+    width: 70%;
+    margin-top: 80px;
+}

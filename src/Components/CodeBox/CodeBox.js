@@ -2,12 +2,12 @@ import React from 'react';
 import TypingAnimation from '.././TypingAnimation/TypingAnimation'; // Import your TypingAnimation component
 import './CodeBox.css'
 
-const CodeBox = ({ text }) => {
+const CodeBox = ({ text, width, maxline }) => {
     return (
-        <div className="code-box">
+        <div className="code-box" style={{ width: width }} >
             <pre>
                 <code>
-                    <TypingAnimation text={text} maxLine={75} />
+                    <TypingAnimation text={text} maxLine={maxline} />
                 </code>
             </pre>
         </div>

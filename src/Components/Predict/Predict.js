@@ -8,7 +8,7 @@ function Predict({ imageData, predictButtonState, onPredictionComplete, isPredic
             if (predictButtonState) {
                 const formData = new FormData();
                 formData.append('file', imageData);
-                axios.post('http://127.0.0.1:5000/predict', formData)
+                axios.post('http://127.0.0.1:5000/predict/fruits', formData)
                     .then(response => {
                         console.log(response.data);
                         const result = response.data;
