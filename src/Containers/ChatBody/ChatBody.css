@@ -160,6 +160,7 @@
     cursor: pointer;
     width: 5%;
     grid-row: 1;
+    text-align: center;
 }
 
 .image-prediction-container {
