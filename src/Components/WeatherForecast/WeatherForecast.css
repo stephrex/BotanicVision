@@ -1,0 +1,193 @@
+.weather-forecast-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2%;
+    margin-top: 20px;
+}
+
+.image_placeholder_forecast_container {
+    background: linear-gradient(130deg, #5a5959 25%, #525050 50%, #666565 75%);
+    background-size: 200% 100%;
+    animation: loading 8s infinite;
+    margin-top: 10px;
+    grid-row: 1;
+    border-radius: 20px;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+}
+
+.location_cloud_info {
+    flex: 0.7;
+    border-radius: 20px;
+    border-color: aliceblue;
+    height: 29em;
+    border: 2px solid rgb(176, 176, 176);
+    background-image: url('https://th.bing.com/th/id/OIP.WCQ3LmNTdTjyFwOmvwB3GQHaE8?rs=1&pid=ImgDetMain');
+    background-size: cover;
+    background-position: center;
+}
+
+.searchbar_other_info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#weather_input_field {
+    display: flex;
+    /* Use flexbox to align items */
+    justify-content: flex-end;
+    /* Center items horizontally */
+    align-items: center;
+    /* Center items vertically */
+    margin-bottom: 20px;
+    /* Add some spacing between the input field and the weather app */
+}
+
+#weather_input_field input[type="text"] {
+    padding: 10px;
+    /* Adjust padding for better appearance */
+    font-size: 16px;
+    /* Set font size */
+    border: 1px solid #ccc;
+    /* Add a border */
+    border-radius: 4px;
+    /* Add border radius for rounded corners */
+    outline: none;
+    /* Remove outline */
+    margin-right: 10px;
+    /* Add spacing between input and button */
+}
+
+#weather_input_field button {
+    padding: 10px 20px;
+    /* Adjust padding */
+    font-size: 16px;
+    /* Set font size */
+    background-color: #007bff;
+    /* Set background color */
+    color: #fff;
+    /* Set text color */
+    border: none;
+    /* Remove border */
+    border-radius: 4px;
+    /* Add border radius for rounded corners */
+    cursor: pointer;
+    /* Change cursor on hover */
+    transition: background-color 0.3s ease;
+    /* Add transition effect */
+}
+
+#weather_input_field button:hover {
+    background-color: #0056b3;
+}
+
+#cloud_icon_container {
+    display: flex;
+    justify-content: center;
+    margin-top: 4%;
+}
+
+#cloud_icon {
+    width: 30%;
+    height: 30%;
+}
+
+#container_results_data {
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#weather_data_country {
+    color: white;
+    font-size: 2.9rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#weather_data_date {
+    color: #fff;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#weather_data_time {
+    color: whitesmoke;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#weather_result {
+
+    margin-top: 28px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* Two columns */
+    grid-auto-rows: minmax(100px, auto);
+    /* Rows will adjust based on content */
+    gap: 20px;
+    /* Add gap between grid items */
+}
+
+#feels_like,
+#description,
+#humidity,
+#wind_speed,
+#sunset,
+#sunrise {
+    grid-column: 1;
+    background-color: rgb(252, 254, 255);
+    border-radius: 10px;
+    width: 100%;
+    height: 90%;
+}
+
+#description,
+#wind_speed,
+#sunrise {
+    grid-column: 2;
+}
+
+.image_placeholder_weather_result {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(130deg, #5a5959 25%, #525050 50%, #727171 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+    margin-top: 10px;
+    grid-row: 1;
+    border-radius: 5px;
+    margin: auto;
+}
+
+.main_result_container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: auto;
+}
+
+.main_result_header {
+    color: rgb(151, 151, 151);
+    font-weight: 600;
+    font-size: 1.3rem;
+    margin-left: 9px;
+}
+
+.main_result {
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    margin-left: 9px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.main_result_img_container {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 0.2rem;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.main_result_img {
+    width: 50%;
+    height: 50%;
+}

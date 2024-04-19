@@ -5,8 +5,9 @@ import Predict from '../../Components/Predict/Predict';
 import CodeBox from '../../Components/CodeBox/CodeBox';
 import CropDiseaseDetection from '../CropDiseaseDetection/CropDiseaseDetection';
 import CropRecommendation from '../CropRecommendation/CropRecommendation';
+import WeatherForecast from '../../Components/WeatherForecast/WeatherForecast';
 
-function ChatBody() {
+function ChatBody({ classifierName, setClassifierName }) {
     const [welcomeTextIndex, setWelcomeTextIndex] = useState(0);
 
     const welcomeTexts = [
@@ -15,7 +16,6 @@ function ChatBody() {
         "Identify Exotic Plants",
         "Learn About Your Food",
         "Join Us on this Journey"
-        // Add more text lines as needed
     ];
 
     useEffect(() => {
@@ -34,7 +34,6 @@ function ChatBody() {
     const [showCropRecommendation, setShowCropRecommedation] = useState(true);
     const [showMainContent, setShowMainContent] = useState(true);
     const [showChatBodyContent2, setshowChatBodyContent2] = useState(false);
-    const [classifierName, setClassifierName] = useState('');
     const [uploadedImage, setUploadedImage] = useState(null);
     const [selectedImage, setSelectedImage] = useState('');
     const [isPredictButtonClicked, setIsPredictButtonClicked] = useState(false);
@@ -83,6 +82,16 @@ function ChatBody() {
         setClassifierName('CR');
     }
 
+    const handleWeatherForecastClick = () => {
+        setShowCropDiseaseDetection(false);
+        setShowCropClassification(false);
+        setShowFruitsClassification(false);
+        setShowCropRecommedation(false);
+        setShowMainContent(false);
+        setshowChatBodyContent2(true);
+        setClassifierName('Weather');
+    }
+
     const handleBackButtonClick = () => {
         setShowCropClassification(true);
         setShowFruitsClassification(true);
@@ -123,6 +132,29 @@ function ChatBody() {
         setIsCDDSelectPage(false);
     }
 
+    useEffect(() => {
+        if (classifierName === 'Crops') {
+            handleBackButtonClick();
+            handlePlantsClick();
+        }
+        else if (classifierName === 'Fruits') {
+            handleBackButtonClick();
+            handleFruitsClick();
+        }
+        else if (classifierName === 'CDD') {
+            handleBackButtonClick();
+            handleCDDClick();
+        }
+        else if (classifierName === 'CR') {
+            handleBackButtonClick();
+            handleCRClick();
+        }
+        else if (classifierName === 'Weather') {
+            handleBackButtonClick();
+            handleWeatherForecastClick();
+        }
+    }, [classifierName]);
+
     return (
         <div className='chat_body_main'>
             <div className='chat_body_header'>
@@ -141,6 +173,9 @@ function ChatBody() {
                             )}
                             {(classifierName === 'CR') && (
                                 <h1 className='welcome_text' style={!showMainContent ? null : { display: 'none' }}>Use BotanicVision to Accurately Predict Crop Yield</h1>
+                            )}
+                            {classifierName === 'Weather' && (
+                                <h1 className='welcome_text' style={!showMainContent ? null : { display: 'none' }}>Learn weather information using Botanic Vision.</h1>
                             )}
                         </div>
                         <div className='welcome_text_2_wrapper'>
@@ -221,7 +256,10 @@ function ChatBody() {
                     {classifierName === 'CR' && (
                         <div><CropRecommendation /></div>
                     )}
-                    {(!isCDDSelectPage && classifierName !== 'CR') && (
+                    {classifierName === 'Weather' && (
+                        <div><WeatherForecast /></div>
+                    )}
+                    {(!isCDDSelectPage && classifierName !== 'CR' && classifierName !== 'Weather') && (
                         <div className='chat_input_component'>
                             <ChatInput onSendImage={handleSendImage} onUploadedImage={uploadedImage} onPredictButtonClick={() => handlePrediction()} />
                         </div>

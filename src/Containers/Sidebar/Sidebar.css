@@ -44,5 +44,5 @@
 
 .sidebar ul li a:hover {
     background-color: #555;
-    /* Darker background color on hover */
+    cursor: pointer;
 }
