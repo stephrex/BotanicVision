@@ -40,3 +40,13 @@
     margin-top: auto;
     margin-bottom: auto;
 }
+
+@media (max-width: 1000px) {
+    .chat-input-container {
+        width: 85%;
+    }
+
+    .placeholder_image_input {
+        font-size: 0.8rem;
+    }
+}

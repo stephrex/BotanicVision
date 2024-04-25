@@ -22,7 +22,6 @@
 
 .toggle-btn.open {
     left: 0;
-    /* Move button to the left */
 }
 
 .toggle-btn.open span {
@@ -32,8 +31,6 @@
 
 /* Styles for main content */
 .chat_body {
-    /* margin-left: 250px; */
-    /* Adjust margin to accommodate sidebar width */
     padding: 20px;
     transition: margin-left 0.3s ease-in-out;
 }
@@ -41,4 +38,20 @@
 .chat_body.expanded {
     margin-left: 250px;
     /* Expand content when sidebar closes */
+}
+
+@media (max-width: 1000px) {
+    .toggle-btn {
+        left: -2px;
+        font-size: 18px;
+        top: 0%;
+    }
+
+    .toggle-btn.open {
+        left: 250px;
+    }
+
+    .chat_body.expanded {
+        margin-left: 0px;
+    }
 }

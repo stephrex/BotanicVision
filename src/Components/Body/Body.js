@@ -11,6 +11,7 @@ function Body() {
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
     };
+
     return (
         <div className='Body'>
             <button className={`toggle-btn ${isSidebarOpen ? 'open' : ''}`} onClick={toggleSidebar}>

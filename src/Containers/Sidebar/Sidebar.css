@@ -46,3 +46,14 @@
     background-color: #555;
     cursor: pointer;
 }
+
+@media (max-width: 1000px) {
+    .sidebar {
+        left: -250px;
+        background-color: #333333e9;
+    }
+
+    .sidebar.open {
+        transform: translateX(250px);
+    }
+}
